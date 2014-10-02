@@ -1,5 +1,6 @@
 # Sidler
-[sahyd-ler] (or side-ler)
+[\[sahyd-ler\] \(or side-ler\)](http://dictionary.reference.com/browse/sidle?s=t)
+
 Noun derived from the verb sidle: to move sideways or obliquely
 
 ## Goals
