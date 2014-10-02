@@ -27,5 +27,15 @@
   "dependencies": {
     "bluebird": "~2.2.2",
     "pogo": "^0.8.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IMD-Business-School/sidler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IMD-Business-School/sidler/issues"
+  },
+  "keywords": [
+    "modal"
+  ]
 }
