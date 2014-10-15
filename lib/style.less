@@ -78,93 +78,93 @@
 });
 
 .sidler-dialog {
-  &.modal {
+  &.sidler-modal {
     position: fixed; 
   }
 
-  &.flex {
-    &.showing {
+  &.sidler-flex {
+    &.sidler-showing {
       .animation(flexGrow 500ms ease forwards);
     }
 
-    &.show {
+    &.sidler-show {
       width: 1000%;
     }
 
-    &.hiding {
+    &.sidler-hiding {
       .animation(flexShrink 500ms ease forwards);
       overflow: hidden;
     }
 
-    &.hide {
+    &.sidler-hide {
       width: 0%;
       overflow: hidden;
     }
   }
 
-  &.edge {
-    &.show {
-      &.top, &.bottom {
+  &.sidler-edge {
+    &.sidler-show {
+      &.sidler-top, &.sidler-bottom {
         .transform(translateY(0px));
       }
 
-      &.right, &.left {
+      &.sidler-right, &.sidler-left {
         .transform(translateX(0px));
       }
     }
 
-    &.showing {
-      &.top {
+    &.sidler-showing {
+      &.sidler-top {
         .animation(slideDown @animation-duration 0s 1 ease forwards);
       }
 
-      &.right {
+      &.sidler-right {
         .animation(slideLeft @animation-duration 0s 1 ease forwards);
       }
 
-      &.bottom {
+      &.sidler-bottom {
         .animation(slideUp @animation-duration 0s 1 ease forwards);
       }
 
-      &.left{
+      &.sidler-left {
        .animation(slideRight @animation-duration 0s 1 ease forwards);
       }
     }
 
-    &.hiding {
-      &.top {
+    &.sidler-hiding {
+      &.sidler-top {
         .animation(slideHideUp @animation-duration 0s 1 ease forwards);
       }
 
-      &.right {
+      &.sidler-right {
         .animation(slideHideRight @animation-duration 0s 1 ease forwards);
       }
 
-      &.bottom {
+      &.sidler-bottom {
         .animation(slideHideDown @animation-duration 0s 1 ease forwards);
       }
 
-      &.left {
+      &.sidler-left {
         .animation(slideHideLeft @animation-duration 0s 1 ease forwards);
       }
     }
 
-    &.top {
+    &.sidler-top {
       top: 0px;
       .transform(translateY(-100%));
     }
 
-    &.right {
+    &.sidler-right {
       right: 0px;
       .transform(translateX(100%));
     }
 
-    &.bottom {
+    &.sidler-bottom {
       bottom: 0px;
       .transform(translateY(100%)); 
     }
 
-    &.left {
+    &.sidler-left {
       left: 0px;
       .transform(translateX(-100%)); 
     }

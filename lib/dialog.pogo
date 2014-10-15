@@ -58,26 +58,26 @@ module.exports.init(position = 'top', selector = nil, html = nil, modal = true, 
     show()=
 
       onAnimationEnd(self.el)
-        remove classes(self.el, ['hide', 'hidding', 'showing'])
-        self.el.classList.add('show')
+        remove classes(self.el, ['sidler-hide', 'sidler-hiding', 'sidler-showing'])
+        self.el.classList.add('sidler-show')
 
       if (modal)
         makeModal()
 
-      self.el.classList.add('showing')
+      self.el.classList.add('sidler-showing')
 
     hide()=
       onAnimationEnd(self.el)
-        remove classes(self.el, ['show', 'showing', 'hiding'])
-        self.el.classList.add('hide')
+        remove classes(self.el, ['sidler-show', 'sidler-showing', 'sidler-hiding'])
+        self.el.classList.add('sidler-hide')
 
 
-      self.el.classList.add('hiding')
+      self.el.classList.add('sidler-hiding')
       if (modalDialog)
         modalDialog.remove()
 
     toggle()=
-      showing = self.el.classList.contains('show')
+      showing = self.el.classList.contains('sidler-show')
       if (showing)
         self.hide()
       else
@@ -96,15 +96,15 @@ module.exports.init(position = 'top', selector = nil, html = nil, modal = true, 
 
 
   dialog.el.classList.add('sidler-dialog')
-  dialog.el.classList.add(position)
+  dialog.el.classList.add('sidler-' + position)
 
   if (edge)
-    dialog.el.classList.add('edge')
+    dialog.el.classList.add('sidler-edge')
   else
-    dialog.el.classList.add('flex')
+    dialog.el.classList.add('sidler-flex')
 
   if (modal)
-    dialog.el.classList.add('modal')
+    dialog.el.classList.add('sidler-modal')
 
   if (html)
     dialog.el.innerHTML = html
