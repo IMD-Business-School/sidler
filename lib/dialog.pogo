@@ -22,7 +22,7 @@ remove classes(el, classes)=
 
 overlay = '<div class="sidler-overlay"></div>'
 
-module.exports.init(position = 'top', selector = nil, html = nil, modal = true, edge = true) =
+module.exports.init(position = 'top', selector = nil, html = nil, modal = true, edge = true, onclosed() = nil) =
   ++dialog count
 
   modalDialog = nil
@@ -43,6 +43,7 @@ module.exports.init(position = 'top', selector = nil, html = nil, modal = true, 
 
       if (!clickedWithinDialog)
         dialog.hide()
+        onclosed()
 
     overlay.addEventListener('click', closeModal, false)
     

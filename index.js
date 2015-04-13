@@ -49,12 +49,15 @@
     overlay = '<div class="sidler-overlay"></div>';
     module.exports.init = function(gen3_options) {
         var self = this;
-        var position, selector, html, modal, edge;
+        var position, selector, html, modal, edge, onclosed;
         position = gen3_options !== void 0 && Object.prototype.hasOwnProperty.call(gen3_options, "position") && gen3_options.position !== void 0 ? gen3_options.position : "top";
         selector = gen3_options !== void 0 && Object.prototype.hasOwnProperty.call(gen3_options, "selector") && gen3_options.selector !== void 0 ? gen3_options.selector : void 0;
         html = gen3_options !== void 0 && Object.prototype.hasOwnProperty.call(gen3_options, "html") && gen3_options.html !== void 0 ? gen3_options.html : void 0;
         modal = gen3_options !== void 0 && Object.prototype.hasOwnProperty.call(gen3_options, "modal") && gen3_options.modal !== void 0 ? gen3_options.modal : true;
         edge = gen3_options !== void 0 && Object.prototype.hasOwnProperty.call(gen3_options, "edge") && gen3_options.edge !== void 0 ? gen3_options.edge : true;
+        onclosed = gen3_options !== void 0 && Object.prototype.hasOwnProperty.call(gen3_options, "onclosed") && gen3_options.onclosed !== void 0 ? gen3_options.onclosed : function() {
+            return void 0;
+        };
         var modalDialog, makeModal, dialog, dialogs;
         ++dialogCount;
         modalDialog = void 0;
@@ -76,7 +79,8 @@
                     }
                 }
                 if (!clickedWithinDialog) {
-                    return dialog.hide();
+                    dialog.hide();
+                    return onclosed();
                 }
             };
             overlay.addEventListener("click", closeModal, false);

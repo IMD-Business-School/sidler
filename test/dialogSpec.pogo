@@ -101,16 +101,19 @@ describe 'dialog'
 
   describe 'modal'
     it 'hides the dialog when clicking the overlay' =>
+      closed = false
       self.timeout(5000)
       html = '<h1>hello dialog</h1>'
-      dialog = builder.init({html = html})
+      dialog = builder.init({html = html, onclosed() = closed := true})
       dialog.show()
 
       retry!(timeout: 1500)
         document.getElementsByClassName('sidler-overlay').0.click()
-        retry!(timeout: 1500)
-          rect = document.getElementById(dialog.id).getBoundingClientRect()
-          expect(rect.top).to.be.lessThan(0)
+
+      retry!(timeout: 1500)
+        rect = document.getElementById(dialog.id).getBoundingClientRect()
+        expect(rect.top).to.be.lessThan(0)
+        expect(closed).to.equal(true)
 
     it'does not hide the dialog when clicking the dialog' =>
       self.timeout(5000)
