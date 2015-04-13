@@ -1,6 +1,6 @@
 {
   "name": "sidler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A library to show dialogs at any edge of the screen",
   "main": "index.js",
   "scripts": {
